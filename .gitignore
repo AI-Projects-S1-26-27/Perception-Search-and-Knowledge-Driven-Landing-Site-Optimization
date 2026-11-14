@@ -1,0 +1,44 @@
+
+# Virtual environments
+.venv/
+.venv-1/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+
+# Temporary files
+tempCodeRunnerFile.py
+
+# Secrets
+.env
+.env.*
+
+# Generated outputs
+src/candidates/
+src/full_pipeline_result/
+src/midas_outputs/
+src/predicted_vs_gt_cand/
+# Unused experimental architecture
+/models/
+
+# Empty checkpoint placeholder
+/checkpoints/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Test cache
+.pytest_cache/
+
+# Temporary files
+tempCodeRunnerFile.py
