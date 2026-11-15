@@ -1,27 +1,4 @@
-"""
-depth_module_v2.py - depth step for the Team Codex landing-site pipeline.
 
-Changes vs v1 (from testing on top-down drone images):
-  * MiDaS_small paints a smooth fake "ground ramp" over top-down images, so we
-    remove the global trend and measure only LOCAL relief.
-  * Image-border artifacts are ignored (margin).
-  * Slope and roughness are split via a plane fit inside each candidate box:
-        slope     = tilt of the best-fit plane
-        roughness = scatter of the depth around that plane
-  * Both are scaled PER IMAGE to ~[0, 1], so they are comparable with the
-    distance and semantic terms in  C = k1*D + k2*R + k3*S  and thresholds
-    do not depend on image size or MiDaS's arbitrary scale.
-
-Usage (run depth + analysis ONCE per image, then query every candidate box):
-    da = DepthAnalysis(image_rgb)                  # image_rgb: uint8 RGB, same
-                                                   # resized image the CNN sees
-    m  = da.box_metrics(corners)                   # {"slope": .., "roughness": ..}
-    bad = da.is_too_steep(corners)                 # bool
-    R   = m["roughness"]                           # use in the cost function
-
-Try da = DepthAnalysis(image_rgb, size=512) to feed MiDaS a larger input.
-Requires: torch, torchvision, timm, opencv-python, numpy
-"""
 import numpy as np
 import cv2
 
