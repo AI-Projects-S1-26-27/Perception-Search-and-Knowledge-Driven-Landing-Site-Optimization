@@ -2,4 +2,5 @@ torch
 numpy
 opencv-python
 pytest
+timm
 segmentation-models-pytorch
