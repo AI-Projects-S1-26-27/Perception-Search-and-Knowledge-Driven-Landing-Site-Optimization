@@ -6,7 +6,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from candidates import generate_candidates
-from depth_module_v2 import DepthAnalysis
+from depth import DepthAnalysis
 from class_policy import CLASS_NAMES
 
 # ---------- configuration ----------

@@ -13,6 +13,7 @@ from class_policy import CLASS_NAMES, allowed_classes
 
 st.set_page_config(page_title="UAV Landing-Site Optimiser", layout="wide")
 
+
 # ================= styling =================
 st.markdown("""
 <style>
@@ -31,8 +32,9 @@ h1, h2, h3, h4 {
 
 /* Main title */
 h1 {
-    font-size: 2.1rem !important;
+    font-size: 1.75rem !important;
     font-weight: 800 !important;
+    margin-bottom: 0.8rem !important;
 }
 
 /* Green primary buttons */
@@ -42,46 +44,42 @@ h1 {
     color: white !important;
 }
 
-/* Navigation container */
-/* Spread all six navigation tabs across the full width */
+/* Compact navigation container */
 .stTabs [data-baseweb="tab-list"] {
     display: flex !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     align-items: center !important;
+    gap: 6px !important;
     width: 100% !important;
-    gap: 40px !important;
-    overflow: visible !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 5px !important;
 }
 
-/* Give each tab more internal breathing room */
+/* Individual tabs */
 .stTabs [data-baseweb="tab"] {
     flex: 0 0 auto !important;
-    padding: 14px 22px !important;
-    white-space: nowrap !important;
-}
-
-/* Individual navigation tabs */
-.stTabs [data-baseweb="tab"] {
-    flex: 0 0 auto !important;
+    padding: 8px 13px !important;
+    min-height: 40px !important;
+    height: 40px !important;
     background: #F3F7F4 !important;
     border: 1px solid #D5E2D9 !important;
-    border-radius: 11px !important;
-    padding: 14px 26px !important;
-    min-height: 54px !important;
-    height: auto !important;
+    border-radius: 9px !important;
+    white-space: nowrap !important;
     transition: all 0.2s ease !important;
 }
 
 /* Tab labels */
 .stTabs [data-baseweb="tab"] p {
     font-family: 'Manrope', sans-serif !important;
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.2px !important;
+    font-size: 13px !important;
+    font-weight: 650 !important;
+    letter-spacing: 0 !important;
     color: #34483C !important;
+    margin: 0 !important;
 }
 
-/* Hover effect */
+/* Hover */
 .stTabs [data-baseweb="tab"]:hover {
     background: #E7F0EA !important;
     border-color: #9AB9A5 !important;
@@ -97,23 +95,54 @@ h1 {
     color: white !important;
 }
 
-/* Remove default tab underline */
+/* Remove default underline */
 .stTabs [data-baseweb="tab-highlight"] {
     display: none !important;
 }
 
-/* Reduce excessive top spacing */
+/* Main page spacing */
 .block-container {
-    padding-top: 1rem !important;
+    padding-top: 1.2rem !important;
     padding-bottom: 2rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+/* Sidebar spacing */
+[data-testid="stSidebar"] .block-container {
+    padding-top: 1.5rem !important;
 }
 
 /* Hide Deploy button */
 [data-testid="stAppDeployButton"] {
     display: none !important;
 }
+/* Multiselect selected items - green theme */
+.stMultiSelect [data-baseweb="tag"] {
+    background-color: #DCEBE1 !important;
+    border: 1px solid #B7D2C0 !important;
+    border-radius: 7px !important;
+}
+
+/* Selected item text */
+.stMultiSelect [data-baseweb="tag"] span {
+    color: #285C43 !important;
+    font-weight: 600 !important;
+}
+
+/* Remove button on selected items */
+.stMultiSelect [data-baseweb="tag"] svg {
+    fill: #285C43 !important;
+    color: #285C43 !important;
+}
+
+/* Hover effect */
+.stMultiSelect [data-baseweb="tag"]:hover {
+    background-color: #C8DFD0 !important;
+}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 ROOT = Path(__file__).resolve().parent

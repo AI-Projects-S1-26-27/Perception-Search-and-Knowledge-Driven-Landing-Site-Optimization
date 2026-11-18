@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-from depth_module_v2 import box_corners
+from depth import box_corners
 from class_policy import allowed_classes, CONDITIONAL_CLASSES, NUM_CLASSES
 
 

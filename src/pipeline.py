@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 
 from segment import predict
-from depth_module_v2 import DepthAnalysis
+from depth import DepthAnalysis
 from candidates import generate_candidates
 from cost import rank_candidates
 from semantic_brain import (load_active_nodes, SOURCES, PROPS, TERRAINS,
